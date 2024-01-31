@@ -222,15 +222,15 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 - **Sundar**
   - **Username:** sundar@xyz.com
-  - **Password:** sundar@123
+  - **Password:** Sundar@123
   - **User Role:** USER
 
 - **Anil**
   - **Username:** anil@xyz.com
-  - **Password:** anil@123
+  - **Password:** Anil@123
   - **User Role:** USER
 
 - **Gopal**
   - **Username:** gopal@xyz.com
-  - **Password:** gopal@123
+  - **Password:** Gopal@123
   - **User Role:** USER
