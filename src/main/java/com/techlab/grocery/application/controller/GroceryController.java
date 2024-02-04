@@ -1,7 +1,6 @@
 package com.techlab.grocery.application.controller;
 
 import com.techlab.grocery.application.entity.Grocery;
-import com.techlab.grocery.application.entity.User;
 import com.techlab.grocery.application.service.GroceryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -116,14 +115,7 @@ public class GroceryController {
     })
     @GetMapping("/admin/groceries")
     public ResponseEntity<List<Grocery>> findAllGrocery() {
-        List<Grocery> groceries = groceryService.findAll();
-        if (groceries != null) {
-            logger.info("Groceries found successfully");
-            return ResponseEntity.ok(groceries);
-        } else {
-            logger.error("Groceries not found");
-            throw HttpServerErrorException.create(HttpStatus.NOT_FOUND, "Groceries not found", null, null, null);
-        }
+        return groceryService.findAllGroceryEntity();
     }
 
     @Operation(description = "Find all groceries, Min Role: User")
@@ -136,13 +128,6 @@ public class GroceryController {
     })
     @GetMapping("/user/groceries")
     public ResponseEntity<List<Grocery>> findAllGroceryForUser() {
-        List<Grocery> groceries = groceryService.findAll();
-        if (groceries != null) {
-            logger.info("Groceries found successfully");
-            return ResponseEntity.ok(groceries);
-        } else {
-            logger.error("Groceries not found");
-            throw HttpServerErrorException.create(HttpStatus.NOT_FOUND, "Groceries not found", null, null, null);
-        }
+        return groceryService.findAllGroceryEntity();
     }
 }

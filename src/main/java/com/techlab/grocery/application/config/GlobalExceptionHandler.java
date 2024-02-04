@@ -18,12 +18,14 @@ public class GlobalExceptionHandler {
 
     Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
+    private static final String INTERNAL_SERVER_ERROR = "Internal Server Error";
+
     @ExceptionHandler(HttpClientErrorException.Unauthorized.class)
     public ResponseEntity<Object> handleUnauthorizedException(HttpClientErrorException.Unauthorized e) {
         logger.error("Unauthorized request trial ", e);
         return e.getStatusCode().equals(HttpStatus.UNAUTHORIZED) ?
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getLocalizedMessage()) :
-                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(HttpClientErrorException.NotFound.class)
@@ -31,7 +33,7 @@ public class GlobalExceptionHandler {
         logger.error("Resource not found for request", e);
         return e.getStatusCode().equals(HttpStatus.NOT_FOUND) ?
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getLocalizedMessage()) :
-                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(HttpClientErrorException.Forbidden.class)
@@ -39,7 +41,7 @@ public class GlobalExceptionHandler {
         logger.error("Forbidden request", e);
         return e.getStatusCode().equals(HttpStatus.FORBIDDEN) ?
                 ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getLocalizedMessage()) :
-                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(Exception.class)

@@ -1,0 +1,4 @@
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /usr/app/grocery-app
+COPY build/libs/GroceryApplication-0.0.1.jar ./grocery-app.jar
+ENTRYPOINT ["java","-jar","/usr/app/grocery-app/grocery-app.jar"]

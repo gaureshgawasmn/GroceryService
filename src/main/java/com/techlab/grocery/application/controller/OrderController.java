@@ -1,7 +1,6 @@
 package com.techlab.grocery.application.controller;
 
 import com.techlab.grocery.application.entity.DTO.OrderDTO;
-import com.techlab.grocery.application.entity.User;
 import com.techlab.grocery.application.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -181,19 +181,42 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 2. Gradle 8.5 is required to build the application.
 
 ### Docker Image Support
-1. To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
-2. Before running the docker image, make sure to change the `customImageName` in build.gradle file.
-2. To create the docker image run the following command from the directory where build.gradle is present.
-   ```bash
-   gradle dockerBuildImage
-   ```
-3. To run the docker image run the following command.
+1. There are two option available to create docker image
+   - Gradle task 
+     - To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
+     - Before running the docker image, make sure to change the `customImageName` in build.gradle file.
+     - To create the docker image run the following command from the directory where build.gradle is present.
+        ```bash
+        gradle dockerBuildImage
+        ```
+   - Using Dockerfile
+     - To create the image using docker file run the following command from the root directory
+       ```bash
+       docker build -t <customImageName> .
+       ```
+       example 
+        ```bash
+       docker build -t gaureshgawasmn/techlab-grocery-service .
+       ```
+     - Using DockerfileUsingJar (this will create image out of the already created jar in libs folder)
+       ```bash
+       docker build -f DockerFileUsingJar -t <customImageName> .
+       ``` 
+       example
+       ```bash
+       docker build -f DockerfileUsingJar -t gaureshgawasmn/techlab-grocery-service:0.0.1 .
+       ```
+       
+2. To run the docker image run the following command.
    ```bash
     docker run -p <RequiredPortToExpose>:8081 <customImageName>
     ```
    example :
    ```bash
     docker run -p 8085:8081 docker.io/gaureshgawasmn/techlab-grocery-service
+    ```
+   ```bash
+    docker run -p 8082:8081 docker.io/gaureshgawasmn/techlab-grocery-service:0.0.1
     ```
 4. The application will be accessible at `http://localhost:<RequiredPortToExpose>/`.
 5. Access the swagger UI at `http://localhost:<RequiredPortToExpose>/swagger-ui/index.html` to test the APIs.
@@ -222,15 +245,15 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 - **Sundar**
   - **Username:** sundar@xyz.com
-  - **Password:** Sundar@123
+  - **Password:** sundar@123
   - **User Role:** USER
 
 - **Anil**
   - **Username:** anil@xyz.com
-  - **Password:** Anil@123
+  - **Password:** anil@123
   - **User Role:** USER
 
 - **Gopal**
   - **Username:** gopal@xyz.com
-  - **Password:** Gopal@123
+  - **Password:** gopal@123
   - **User Role:** USER

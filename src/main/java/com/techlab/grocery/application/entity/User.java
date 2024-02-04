@@ -1,7 +1,6 @@
 package com.techlab.grocery.application.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,9 +46,9 @@ public class User {
 
     public User setRoles(List<Role> roles) {
         this.roles = roles;
-        roles.stream().forEach(role -> {
-            this.role += role.toString() + ",";
-        });
+        roles.stream().forEach(currentRole ->
+                this.role += currentRole.toString() + ","
+        );
         return this;
     }
 

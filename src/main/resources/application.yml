@@ -3,11 +3,14 @@ server:
 spring:
   profiles:
     active: dev
-#  security:
-#    user:
-#      name: admin
-#      password: admin
-#      roles: ADMIN,USER
+  security:
+    default:
+      password: password2
+  #  security:
+  #    user:
+  #      name: admin
+  #      password: admin
+  #      roles: ADMIN,USER
   jpa:
     defer-datasource-initialization: true
     show-sql: true
@@ -19,9 +22,12 @@ spring:
 #    console:
 #      enabled: true
 logging:
+  file:
+    name: logs/app.log
+    path: logs
+    max-size: 10MB
+    max-history: 10
+    max-days: 10
   level:
     org:
-      springframework:
-        type: trace
-      hibernate:
-        stat: DEBUG
+      springframework: DEBUG

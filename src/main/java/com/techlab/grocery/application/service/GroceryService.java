@@ -1,6 +1,7 @@
 package com.techlab.grocery.application.service;
 
 import com.techlab.grocery.application.entity.Grocery;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface GroceryService {
     void deleteById(int id);
 
     List<Grocery> findAll();
+
+    ResponseEntity<List<Grocery>> findAllGroceryEntity();
 }

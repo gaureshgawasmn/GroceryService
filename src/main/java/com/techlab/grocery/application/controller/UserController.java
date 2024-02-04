@@ -4,7 +4,6 @@ import com.techlab.grocery.application.entity.DTO.UserDTO;
 import com.techlab.grocery.application.entity.User;
 import com.techlab.grocery.application.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -13,6 +12,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -33,7 +33,8 @@ public class UserController {
 
     private PasswordEncoder passwordEncoder;
 
-    private static final String DEFAULT_PASSWORD = "password";
+    @Value("${spring.security.default.password}")
+    private String defaultPassword;
 
     @Autowired
     public UserController(UserService userService, PasswordEncoder passwordEncoder) {
@@ -53,7 +54,7 @@ public class UserController {
             logger.error("User already exist");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User already exist");
         }
-        user.setPassword(passwordEncoder.encode(DEFAULT_PASSWORD));
+        user.setPassword(passwordEncoder.encode(defaultPassword));
         User savedUser = userService.saveUser(user);
         if (savedUser != null) {
             logger.info("User saved successfully");
@@ -72,10 +73,10 @@ public class UserController {
     })
     @PutMapping("/admin/users")
     public ResponseEntity<String> updateUser(@RequestBody User user) {
-        user.setPassword(passwordEncoder.encode(DEFAULT_PASSWORD));
+        user.setPassword(passwordEncoder.encode(defaultPassword));
         User updatedUser = userService.saveUser(user);
         if (updatedUser != null) {
-            logger.info("User updated successfully");
+            logger.info("Given User updated successfully");
             return ResponseEntity.ok("User updated successfully");
         } else {
             logger.error("User not updated");
@@ -126,7 +127,7 @@ public class UserController {
     public ResponseEntity<String> updateUser(@RequestBody UserDTO user) {
         boolean updatedUser = userService.updateUser(user);
         if (updatedUser) {
-            logger.info("User updated successfully");
+            logger.info("Given User updated successfully");
             return ResponseEntity.ok("User updated successfully");
         } else {
             logger.error("User not updated");

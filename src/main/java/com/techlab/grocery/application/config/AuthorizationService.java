@@ -24,7 +24,7 @@ public class AuthorizationService {
         if (authentication != null && authentication.isAuthenticated()) {
             // Retrieve the username from the Authentication object
             username = authentication.getName();
-            logger.info("Authenticated Username: " + username);
+            logger.info("Authenticated Username: {}", username);
         } else {
             logger.error("User not authenticated");
         }
