@@ -5,7 +5,7 @@ spring:
     active: dev
   security:
     default:
-      password: password2
+      password: password
   #  security:
   #    user:
   #      name: admin
