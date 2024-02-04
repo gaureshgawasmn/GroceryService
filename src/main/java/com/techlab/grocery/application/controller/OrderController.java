@@ -38,7 +38,7 @@ public class OrderController {
 
     @Operation(description = "Save orders, Min Role: USER")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Orders saved successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Orders saved successfully")})),
+            @ApiResponse(responseCode = "200", description = "Orders saved successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Orders saved successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })

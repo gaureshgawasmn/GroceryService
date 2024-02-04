@@ -44,7 +44,7 @@ public class UserController {
 
     @Operation(description = "Save user, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "User saved successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User saved successfully")})),
+            @ApiResponse(responseCode = "200", description = "User saved successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User saved successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -67,7 +67,7 @@ public class UserController {
 
     @Operation(description = "Update user, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "User updated successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User updated successfully")})),
+            @ApiResponse(responseCode = "200", description = "User updated successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User updated successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -86,7 +86,7 @@ public class UserController {
 
     @Operation(description = "Delete user, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "User deleted successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User deleted successfully")})),
+            @ApiResponse(responseCode = "200", description = "User deleted successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User deleted successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -119,7 +119,7 @@ public class UserController {
 
     @Operation(description = "Update self details, Min Role: USER")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "User details updated successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User details updated successfully")})),
+            @ApiResponse(responseCode = "200", description = "User details updated successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "User details updated successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })

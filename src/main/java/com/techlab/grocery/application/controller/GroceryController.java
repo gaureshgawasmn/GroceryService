@@ -38,7 +38,7 @@ public class GroceryController {
 
     @Operation(description = "Save Grocery, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Grocery saved successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery saved successfully")})),
+            @ApiResponse(responseCode = "200", description = "Grocery saved successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery saved successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -56,7 +56,7 @@ public class GroceryController {
 
     @Operation(description = "Delete Grocery, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Grocery deleted successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery deleted successfully")})),
+            @ApiResponse(responseCode = "200", description = "Grocery deleted successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery deleted successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
@@ -69,7 +69,7 @@ public class GroceryController {
 
     @Operation(description = "Update Grocery, Min Role: ADMIN")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Grocery updated successfully", content = @Content(mediaType = "text", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery updated successfully")})),
+            @ApiResponse(responseCode = "200", description = "Grocery updated successfully", content = @Content(mediaType = "text/plain", schema = @Schema(implementation = String.class), examples = {@ExampleObject(name = "Success", value = "Grocery updated successfully")})),
             @ApiResponse(responseCode = "403", description = "Forbidden"),
             @ApiResponse(responseCode = "500", description = "Internal server error")
     })
