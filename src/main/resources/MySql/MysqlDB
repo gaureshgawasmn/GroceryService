@@ -1,0 +1,11 @@
+// run the below command to create the mysql image
+docker build -t my-mysql-image .
+// run the below command to run the mysql image
+docker run -d --name my-mysql-container -p 3306:3306 my-mysql-image
+
+// to check and see the table in the container
+docker ps
+docker exec -it da012ca6d390 mysql -u admin -p
+
+use qp-assessment
+show tables;
