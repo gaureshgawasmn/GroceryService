@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS grocery (
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     price FLOAT NOT NULL,
     quantity INT NOT NULL,
     name VARCHAR(255),
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS user_details (
 
 CREATE TABLE IF NOT EXISTS order_details (
     grocery_id INT,
-    id INT NOT NULL,
+    id INT NOT NULL AUTO_INCREMENT,
     quantity INT NOT NULL,
     total_price FLOAT NOT NULL,
     user_user_id VARCHAR(255),

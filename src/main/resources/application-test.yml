@@ -1,26 +1,20 @@
 server:
-  port: 8081
+  port: 8082
 spring:
-  profiles:
-    active: dev
   security:
     default:
       password: password
-  #  security:
-  #    user:
-  #      name: admin
-  #      password: admin
-  #      roles: ADMIN,USER
   jpa:
     defer-datasource-initialization: true
     show-sql: true
     properties:
       hibernate.format_sql: true
   datasource:
-    url: jdbc:h2:mem:qp-assessment
-#  h2:
-#    console:
-#      enabled: true
+    #    url: jdbc:h2:mem:qp-assessment
+    url: jdbc:mysql://localhost:3306/qp-assessment
+    username: admin
+    password: admin
+    driver-class-name: com.mysql.cj.jdbc.Driver
 logging:
   file:
     name: logs/app.log

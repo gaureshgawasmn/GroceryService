@@ -1,11 +1,11 @@
 // run the below command to create the mysql image
-docker build -t my-mysql-image .
+docker build -t gaureshgawasmn/techlab-grocery-service-db .
 // run the below command to run the mysql image
-docker run -d --name my-mysql-container -p 3306:3306 my-mysql-image
+docker run -d --name my-mysql-container -p 3306:3306 gaureshgawasmn/techlab-grocery-service-db
 
 // to check and see the table in the container
 docker ps
-docker exec -it da012ca6d390 mysql -u admin -p
+docker exec -it da012ca6d390 mysql -u root -p
 
 use qp-assessment
 show tables;
